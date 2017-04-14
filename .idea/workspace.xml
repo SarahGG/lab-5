@@ -555,12 +555,12 @@
       <option name="presentableId" value="Default" />
       <updated>1492140800311</updated>
       <workItem from="1492140804451" duration="2963000" />
-      <workItem from="1492184877851" duration="3115000" />
+      <workItem from="1492184877851" duration="3204000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6078000" />
+    <option name="totallyTimeSpent" value="6167000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -618,7 +618,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1492188229915" expanded="true" signature="52:141" ph="/**...*/" />
           </folding>
         </state>
       </provider>
@@ -629,7 +628,6 @@
           <caret line="96" column="73" lean-forward="false" selection-start-line="96" selection-start-column="73" selection-end-line="96" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1492188229915" expanded="true" signature="52:141" ph="/**...*/" />
           </folding>
         </state>
       </provider>
