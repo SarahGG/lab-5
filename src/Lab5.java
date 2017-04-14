@@ -3,16 +3,30 @@ import java.util.Scanner;
 
 /**
  * rolls two dice with random results
+ *
+ * @author Sarah Guarino
+ * @version 1.0
  */
 public class Lab5 {
     private static Scanner scnr = new Scanner(System.in);
     private static boolean doAgain = false;
 
+    // dice related variables
+    private static int dieFaces;
+    private static int dieAmount;
+    private static Random rollResult = new Random();
+    private static String dieResults = "";
+
+    /**
+     * My main method
+     * promopts user and collects number of faces on each die
+     * prompts user and collects number dice to roll
+     * prints the results
+     * asks user if they want to continue continue(y/n)
+     *
+     * @param args psvm string arguments
+     */
     public static void main(String[] args) {
-        int dieFaces;
-        int dieAmount;
-        String dieResults = "";
-        Random rollResult = new Random();
 
         do {
             System.out.print("How many faces should your die have? ");
@@ -21,15 +35,18 @@ public class Lab5 {
             System.out.print("How many dice would you like to roll? ");
             dieAmount = scnr.nextInt();
 
-            for(int i = 1; i <= dieAmount; i++){
-                dieResults = "" + dieResults + rollResult.nextInt(dieFaces) + " ";
-            }
-            System.out.println(dieResults);
+            //prints roll results to the console
+            printResults();
 
+            // asks user if they want to go again, and manually validates input
             inputCheck();
         }
+        // will only repeat the loop if inputCheck() changes doAgain to true
         while(doAgain);
     }
+
+
+
     /**
      * asks user if they want to continue and then checks their input
      * for yes, no, a test result, or an incorrect input
@@ -68,5 +85,16 @@ public class Lab5 {
         }
         // repeats the loop if the user gave the wrong input
         while (!correctInput);
+    }
+
+    /**
+     * concantonates each dice result to the rollResults string and then prints to string to the console
+     */
+    private static void printResults () {
+        for(int i = 1; i <= dieAmount; i++){
+            dieResults = "" + dieResults + rollResult.nextInt(dieFaces) + " ";
+        }
+        //trims trailing white space and prints dieResults to the console
+        System.out.println(dieResults.trim());
     }
 }
