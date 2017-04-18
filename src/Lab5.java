@@ -11,12 +11,6 @@ public class Lab5 {
     private static Scanner scnr = new Scanner(System.in);
     private static boolean doAgain = false;
 
-    // dice related variables
-    private static int dieFaces;
-    private static int dieAmount;
-    private static Random rollResult = new Random();
-    private static String dieResults = "";
-
     /**
      * My main method
      * promopts user and collects number of faces on each die
@@ -27,6 +21,8 @@ public class Lab5 {
      * @param args psvm string arguments
      */
     public static void main(String[] args) {
+        int dieFaces;
+        int dieAmount;
 
         do {
             System.out.print("How many faces should your die have? ");
@@ -36,7 +32,7 @@ public class Lab5 {
             dieAmount = scnr.nextInt();
 
             //prints roll results to the console
-            printResults();
+            printResults(dieAmount, dieFaces);
 
             // asks user if they want to go again, and manually validates input
             inputCheck();
@@ -45,15 +41,13 @@ public class Lab5 {
         while(doAgain);
     }
 
-
-
     /**
      * asks user if they want to continue and then checks their input
      * for yes, no, a test result, or an incorrect input
      */
     private static void inputCheck() {
         boolean correctInput; // will check that user has input 'n', 'N', 'y', or 'Y'
-        char userContinueCheck = 'z'; // will check that user wants to repeat the program
+        char userContinueCheck; // will check that user wants to repeat the program
 
         /* asks user if they want to continue and then checks their input
         for yes, no, a test result, or an incorrect input */
@@ -72,10 +66,6 @@ public class Lab5 {
                     correctInput = true; // 'n' and 'N' are correct input
                     doAgain = false; // will exit the main program
                     break;
-                case 'z':
-                    correctInput = true; // can repeat test if tester wants
-                    System.out.println("Your userContinueCheck has failed.");
-                    break;
                 default:
                     correctInput = false; // makes the doWhile loop ask for another input
                     System.out.println("Incorrect Input!"); // yells at you for misbehavin'
@@ -90,11 +80,15 @@ public class Lab5 {
     /**
      * concantonates each dice result to the rollResults string and then prints to string to the console
      */
-    private static void printResults () {
+    private static void printResults (int dieAmount, int dieFaces) {
+        String resultsSentence = "";
+        Random rollResult = new Random();
+
         for(int i = 1; i <= dieAmount; i++){
-            dieResults = "" + dieResults + rollResult.nextInt(dieFaces) + " ";
+            resultsSentence += rollResult.nextInt(dieFaces) + " ";
         }
+
         //trims trailing white space and prints dieResults to the console
-        System.out.println(dieResults.trim());
+        System.out.println(resultsSentence.trim() + ".");
     }
 }
